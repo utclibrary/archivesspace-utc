@@ -21,19 +21,19 @@
 
 en:
   brand:
-    title: ArchivesSpace Public Interface
-    title_link_text: Return to the ArchivesSpace homepage
+    title: University of Tennessee at Chattanooga Finding Aids
+    title_link_text: Return to the University of Tennessee at Chattanooga Finding Aids homepage
     home: Home
-    welcome_head: Welcome to ArchivesSpace
+    welcome_head: University of Tennessee at Chattanooga Finding Aids
     welcome_message: |
-                     <p>Search across our collections, digital materials, and more.</p>
+                     <p>Search or browse our finding aids for manuscript and archival materials housed in the University of Tennessee at Chattanooga's <a href="https://www.utc.edu/library/special-collections/" target="_blank">Special Collections</a>, including the <a href="https://www.utc.edu/library/special-collections/collections/chattanooga-history-collections.php" target="_blank">Chattanooga History Collections</a>.</p><p>Finding aids are detailed inventories of collections which provide information about the creation, historical context, and contents of primary source materials. They are used to determine which archival collections are useful for your research. For help conducting research with finding aids and requesting materials, please consult our <a href="https://www.utc.edu/library/special-collections/research/faq.php" target="_blank">Frequently Asked Questions</a>. To access materials, visit <a href="https://www.utc.edu/library/special-collections/" target="_blank">Special Collections</a>. <a href="https://www.utc.edu/library/special-collections/services/make-an-appointment.php" target="_blank">Appointments are encouraged</a>.</p>
 
     welcome_search_label: "Find what you're looking for:"
-    welcome_page_title: ArchivesSpace Public Interface
+    welcome_page_title: University of Tennessee at Chattanooga Finding Aids
 
   actions:
     search: Search
-    search_header: Search The Archives
+    search_header: Search Finding Aids
     search_within: Search within results
     search_in: "Search %{type}"
     new_search: New Search
