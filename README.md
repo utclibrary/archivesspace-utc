@@ -2,7 +2,7 @@
 Customization files for UTC Library SPC Archivesspace.
 
 ## Files to modify
-### config/cofig.rb
+### config/config.rb
 - AppConfig[:db_url] = "jdbc:mysql://localhost:3306/archivesspace?user=[readacted]&password=[readacted]&useUnicode=true&characterEncoding=UTF-8"
 - AppConfig[:public_theme] = "local"
 - AppConfig[:pui_enable_staff_link] = true
@@ -11,59 +11,54 @@ Customization files for UTC Library SPC Archivesspace.
 - AppConfig[:pui_hide][:classifications] = true
 ### modified files:
 
+plugins
+└── local
+    ├── frontend
 
-├── config
+    │   ├── assets
 
-│   └── config.rb
+    │   │   ├── custom.css *
 
-└── plugins
+    │   │   ├── images
 
-    └── local
-        ├── frontend
+    │   │   │   └── utc.svg *
 
-        │   ├── assets
+    │   │   ├── utc.ico *
 
-        │   │   ├── custom.css *
+    │   │   └── utc.js *
 
-        │   │   ├── images
+    │   └── views
 
-        │   │   │   └── utc.svg *
+    │       ├── layout_head.html.erb *
 
-        │   │   ├── utc.ico *
+    │       ├── shared
 
-        │   │   └── utc.js *
+    │       └── site
 
-        │   └── views
+    │           ├── _branding.html.erb *
 
-        │       ├── layout_head.html.erb *
+    │           └── _footer.html.erb *
 
-        │       ├── shared
+    └── public
 
-        │       └── site
+        ├── assets
 
-        │           ├── _branding.html.erb *
-
-        │           └── _footer.html.erb *
-
-        └── public
-
-            ├── assets
-
-            │   ├── custom.css *
+            │   ├── custom.css *
 
             │   ├── images
 
             │   │   └── utc.svg *
 
-            │   ├── utc.ico *
+            │   ├── utc.ico *
 
             │   └── utc.js *
 
             └── views
+
                 ├── layout_head.html.erb *
 
                 ├── shared
 
                     ├── _footer.html.erb *
 
-                    └── _header.html.erb *
+                    └── _header.html.erb * 
