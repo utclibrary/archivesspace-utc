@@ -11,6 +11,14 @@ h1, h2, ul.nav {
     float: left;
     margin-bottom: 10px;
   }
+  #header {
+    padding: 0 25px 10px 50px;
+  }
+}
+@media screen and (max-width: 991px){
+  #header {
+    padding: 0 25px 10px 25px;
+  }
 }
 
 html, body {
@@ -23,15 +31,20 @@ body {
   flex-direction: column;
 }
 
-#content {
+.center-block .content-pane {
+  background: whitesmoke;
   flex: 1 0 auto;
 }
 
 .container-fluid {
+  padding-left:0;
+  padding-right:0;
   margin-right: 0;
   margin-left: 0;
 }
-
+.container-fluid .co-md-12{
+  background: whitesmoke;
+}
 #header {
   margin: 0;
   width: 100%;
@@ -42,7 +55,6 @@ body {
 }
 
 #header {
-  padding: 0 25px 10px 25px;
   background: #00386B;
 }
 
@@ -86,7 +98,7 @@ body {
   flex-shrink: 0;
   bottom: 0;
   width: 100%;
-  margin: 20px 0 0 auto;
+  margin: 0 0 0 auto;
   padding: 4px 30px 40px 30px;
   background: #dde6ee;
   border-top: 1px solid #999;

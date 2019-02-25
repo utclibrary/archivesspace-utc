@@ -1,0 +1,107 @@
+@import url(//fonts.googleapis.com/css?family=Exo:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i);
+
+h1, h2, ul.nav {
+  font-family: Exo, sans-serif;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 992px) {
+  #header img {
+    height: 50px;
+    float: left;
+    margin-bottom: 10px;
+  }
+  #header {
+    padding: 0 25px 10px 50px;
+  }
+}
+@media screen and (max-width: 991px){
+  #header {
+    padding: 0 25px 10px 25px;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  flex: 1 0 auto;
+}
+
+.container-fluid {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#header {
+  margin: 0;
+  width: 100%;
+}
+
+#header h1 a img {
+  max-height: 50px;
+}
+
+#header {
+  background: #00386B;
+}
+
+#tabs .navbar-default {
+  background-color: #E0E0DF;
+  border-color: #E0E0DF;
+}
+
+.top-bar {
+  background-color: #E0E0DF !important; //bad form trying to overwrite system css
+}
+
+.top-bar ul li a.active {
+  color: black;
+  /*border-bottom: 3px solid #E0AA0F;*/
+  border-bottom: 3px solid black;
+  /*background: whitesmoke;*/
+}
+
+/* hide search title on home page */
+.search h3 {
+  display: none;
+}
+
+#advanced_search {
+  margin-top: 25px;
+}
+
+/* changes to badge colors */
+.record-type-badge.repository {
+  color: #802020;
+  border-color: #802020;
+}
+
+.record-type-badge.subject {
+  color: #941c9a;
+  border-color: #941c9a;
+}
+
+#footer {
+  flex-shrink: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 20px 0 0 auto;
+  padding: 4px 30px 40px 30px;
+  background: #dde6ee;
+  border-top: 1px solid #999;
+  -webkit-box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+#footer p.footer-items {
+  padding-top: 10px;
+  text-align: right;
+}

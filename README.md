@@ -22,51 +22,47 @@
 
         │   ├── assets
 
-        │   │   ├── custom.css
+        │   │   ├── custom.css *
 
         │   │   ├── images
 
-        │   │   │   └── utc.svg
+        │   │   │   └── utc.svg *
 
-        │   │   ├── utc.ico
+        │   │   ├── utc.ico *
 
-        │   │   └── utc.js
+        │   │   └── utc.js *
 
         │   └── views
 
-        │       ├── layout_head.html.erb
+        │       ├── layout_head.html.erb *
 
         │       ├── shared
 
         │       └── site
 
-        │           ├── _branding.html.erb
+        │           ├── _branding.html.erb *
 
-        │           └── _footer.html.erb
-
-        ├── indexer
+        │           └── _footer.html.erb *
 
         └── public
 
             ├── assets
 
-            │   ├── custom.css
+            │   ├── custom.css *
 
             │   ├── images
 
-            │   │   └── utc.svg
+            │   │   └── utc.svg *
 
-            │   ├── utc.ico
+            │   ├── utc.ico *
 
-            │   └── utc.js
+            │   └── utc.js *
 
             └── views
-                ├── layout_head.html.erb
+                ├── layout_head.html.erb *
 
                 ├── shared
 
-                │   ├── _footer.html.erb
+                    ├── _footer.html.erb *
 
-                │   └── _header.html.erb
-
-                └── site
+                    └── _header.html.erb *
