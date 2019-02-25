@@ -12,7 +12,9 @@ Customization files for UTC Library SPC Archivesspace.
 ### modified files:
 
 plugins
+
 └── local
+
     ├── frontend
 
     │   ├── assets
@@ -61,4 +63,4 @@ plugins
 
                     ├── _footer.html.erb *
 
-                    └── _header.html.erb * 
+                    └── _header.html.erb *
