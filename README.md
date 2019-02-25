@@ -1,3 +1,4 @@
+
 # Archivesspace UTC modifications
 
 ## Files to modify
@@ -10,38 +11,40 @@ AppConfig[:pui_hide][:accessions] = true
 AppConfig[:pui_hide][:classifications] = true
 + these files:
 .
-├── README.md
-├── config
-│   └── config.rb
-└── plugins
-    └── local
-        ├── frontend
-        │   ├── assets
-        │   │   ├── custom.css
-        │   │   ├── images
-        │   │   │   └── utc.svg
-        │   │   ├── utc.ico
-        │   │   └── utc.js
-        │   └── views
-        │       ├── layout_head.html.erb
-        │       ├── shared
-        │       └── site
-        │           ├── _branding.html.erb
-        │           └── _footer.html.erb
-        ├── indexer
-        └── public
-            ├── assets
-            │   ├── custom.css
-            │   ├── images
-            │   │   └── utc.svg
-            │   ├── utc.ico
-            │   └── utc.js
-            └── views
-                ├── layout_head.html.erb
-                ├── shared
-                │   ├── _footer.html.erb
-                │   └── _header.html.erb
-                └── site
-
-
-21 directories, 21 files
++-- config
+│   \-- config.rb
++-- derby.log
+\-- plugins
+    \-- local
+        +-- backend
+        │   +-- controllers
+        │   \-- model
+        │       \-- mixins
+        +-- frontend
+        │   +-- assets
+        │   │   +-- custom.css
+        │   │   +-- images
+        │   │   │   \-- utc.svg
+        │   │   +-- utc.ico
+        │   │   \-- utc.js
+        │   \-- views
+        │       +-- layout_head.html.erb
+        │       +-- shared
+        │       \-- site
+        │           +-- _branding.html.erb
+        │           \-- _footer.html.erb
+        +-- indexer
+        +-- public
+        │   +-- assets
+        │   │   +-- custom.css
+        │   │   +-- images
+        │   │   │   \-- utc.svg
+        │   │   +-- utc.ico
+        │   │   \-- utc.js
+        │   \-- views
+        │       +-- layout_head.html.erb
+        │       +-- shared
+        │       │   +-- _footer.html.erb
+        │       │   \-- _header.html.erb
+        │       \-- site
+        \-- schemas
