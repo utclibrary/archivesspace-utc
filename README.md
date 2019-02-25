@@ -1,4 +1,5 @@
 # Archivesspace UTC modifications
+Customization files for UTC Library SPC Archivesspace.
 
 ## Files to modify
 ### config/cofig.rb
