@@ -9,7 +9,7 @@ Customization files for UTC Library SPC Archivesspace.
 - AppConfig[:pui_hide][:digital_objects] = true
 - AppConfig[:pui_hide][:accessions] = true
 - AppConfig[:pui_hide][:classifications] = true
-### modified files:
+### modified files*ß:
 ```
 plugins
 └── local
