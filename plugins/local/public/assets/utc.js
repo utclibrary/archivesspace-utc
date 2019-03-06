@@ -1,10 +1,9 @@
 $(document).ready(function(){
   // add home button to menu
-  $('#navigation ul').prepend("<li><a href='/'>Home!</a></li>");
+  $('#navigation ul').prepend("<li><a href='/'>Home</a></li>");
   $(function() {
     //get full url
     var url = location.href;
-    console.log(url);
     // add envrironmental indicator
     if (url.indexOf('archivesspace.lib.utc.edu') === -1){
       $('body').prepend("<div id='dev-environment' class='alert alert-info' role='alert' style='padding: 0.25em; text-align: center; margin-bottom: 0px; display: block;'> | <strong>DEV</strong> environment | </div>");
