@@ -13,7 +13,7 @@
 ###
 #
 ## Set your database name and credentials here.  Example:
-AppConfig[:db_url] = "jdbc:mysql://localhost:3306/archivesspace?user=as&password=as123&useUnicode=true&characterEncoding=UTF-8"
+AppConfig[:db_url] = "jdbc:mysql://localhost:3306/archivesspace?user={REDACTED}&password={REDACTED}&useUnicode=true&characterEncoding=UTF-8"
 ##
 #AppConfig[:db_url] = proc { AppConfig.demo_db_url }
 #
