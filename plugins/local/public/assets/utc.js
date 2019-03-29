@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  $( function() {
+   $( "#date" ).datepicker();
+  } );
   // add home button to menu
   $('#navigation ul').prepend("<li><a href='/'>Home</a></li>");
   $(function() {
