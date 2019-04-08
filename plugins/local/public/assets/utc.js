@@ -18,10 +18,12 @@ $(document).ready(function() {
       document.title = "Finding Aids | Special Collections | University of Tennessee at Chattanooga";
     }
     //capture Request click for possible redirect to form
+    /*
     $('.request').click(function() {
       alert("DEMO\nHandler for request button click called from:\n" + current + ". \nNew window will open to 'SPC -make an appt.' with appended refer. This would require work on the form to capture this information.");
       window.open('https://www.utc.edu/library/special-collections/services/make-an-appointment.php?refer='+ current)
     });
+    */
     $('.top-bar ul li a').each(function() {
       var $this = $(this);
       // if the current path is like this link, make it active
