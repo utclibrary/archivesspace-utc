@@ -45,7 +45,7 @@ en:
     backup_abbr: Go back
     cite: Citation
     bookmark: Bookmark
-    request: Request
+    request: Make an Appointment
     print: Print
     print-generating: Generating
     collection_overview: Collection Overview
@@ -62,10 +62,15 @@ en:
 
   request:
     required: required
-    user_name: Your name
-    user_email: Your email address
-    date: Anticipated arrival date
-    note: Note to the staff
+    intro: |
+                <p>Complete this form and we'll arrange to place requested archival materials on hold and schedule one of our archivists to meet with you in person. Appointments are available during our <a href="https://www.utc.edu/library/special-collections/about/hours-and-location.php" target="_blank">hours of operation</a>. Requests may take up to 5 business days to process.</p>
+    user_name: Full Name
+    user_email: Email
+    date: Preferred Date and Time of Appointment
+    additional_info: Provide additional details about your research topic, including relevant dates, locations, names, and formats.
+    course: Class Name/Course Number
+    wireless: I request guest access to the University’s wireless network during my visit.
+    note: Provide additional details about your research topic, including relevant dates, locations, names, and formats.
     visit: "Submit a request to visit %{repo_name} to view <strong>%{archival_object}</strong>"
     submit: Submit Request
     submitted: Thank you, your request has been submitted.  You will soon receive an email with a copy of your request.
