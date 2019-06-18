@@ -13,13 +13,14 @@
 ###
 #
 ## Set your database name and credentials here.  Example:
-AppConfig[:db_url] = "jdbc:mysql://localhost:3306/archivesspace?user={REDACTED}&password={REDACTED}&useUnicode=true&characterEncoding=UTF-8"
+## AppConfig[:db_url] = "jdbc:mysql://localhost:3306/archivesspace?user=as&password=as123&useUnicode=true&characterEncoding=UTF-8"
+AppConfig[:db_url] = "jdbc:mysql://localhost:3306/archivesspace?user=as&password=as123&useUnicode=true&characterEncoding=UTF-8&useSSL=false"
 ##
 #AppConfig[:db_url] = proc { AppConfig.demo_db_url }
 #
 ## Set the maximum number of database connections used by the application.
 ## Default is derived from the number of indexer threads.
-#AppConfig[:db_max_connections] = proc { 20 + (AppConfig[:indexer_thread_count] * 2) }
+AppConfig[:db_max_connections] = proc { 20 + (AppConfig[:indexer_thread_count] * 2) }
 #
 ## The ArchivesSpace backend listens on port 8089 by default.  You can set it to
 ## something else below.
@@ -27,11 +28,11 @@ AppConfig[:db_url] = "jdbc:mysql://localhost:3306/archivesspace?user={REDACTED}&
 #
 ## The ArchivesSpace staff interface listens on port 8080 by default.  You can
 ## set it to something else below.
-#AppConfig[:frontend_url] = "http://localhost:8080"
+AppConfig[:frontend_url] = "http://192.168.33.11:8080"
 #
 ## The ArchivesSpace public interface listens on port 8081 by default.  You can
 ## set it to something else below.
-#AppConfig[:public_url] = "http://localhost:8081"
+AppConfig[:public_url] = "http://192.168.33.11:8081"
 #
 ## The ArchivesSpace OAI server listens on port 8082 by default.  You can
 ## set it to something else below.
@@ -87,6 +88,8 @@ AppConfig[:db_url] = "jdbc:mysql://localhost:3306/archivesspace?user={REDACTED}&
 ##      "pf" => 'title^10',
 ##      "ps" => 0,
 ##    }
+## For more inforsmation about solr parameters, please consult the solr documentation
+## here: https://lucene.apache.org/solr/
 ## Configuring search operator to be AND by default - ANW-427
 #AppConfig[:solr_params] = { "q.op" => "AND" }
 #
@@ -96,13 +99,13 @@ AppConfig[:db_url] = "jdbc:mysql://localhost:3306/archivesspace?user={REDACTED}&
 #AppConfig[:locale] = :en
 #
 ## Plug-ins to load. They will load in the order specified
-#AppConfig[:plugins] = ['local',  'lcnaf']
+AppConfig[:plugins] = ['local',  'lcnaf', 'aspace-import-excel']
 #
 ## The number of concurrent threads available to run background jobs
 ## Resist the urge to set this to a big number as it will affect performance
 #AppConfig[:job_thread_count] = 2
 #
-AppConfig[:oai_proxy_url] = 'http://archivesspace.lib.utc.edu:8082'
+#AppConfig[:oai_proxy_url] = 'http://your-public-oai-url.example.com'
 #
 ## DEPRECATED OAI Settings: Moved to database in ANW-674
 ## NOTE: As of release 2.5.2, these settings should be set in the Staff User interface
@@ -155,6 +158,10 @@ AppConfig[:oai_proxy_url] = 'http://archivesspace.lib.utc.edu:8082'
 #AppConfig[:default_page_size] = 10
 #AppConfig[:max_page_size] = 250
 #
+## An option to change the length of the abstracts on the collections overview page
+## If your Scope & Contents notes are very long you can increase this to show more
+#AppConfig[:abstract_note_length] = 500
+#
 ## A prefix added to cookies used by the application.
 ##
 ## Change this if you're running more than one instance of ArchivesSpace on the
@@ -206,7 +213,9 @@ AppConfig[:oai_proxy_url] = 'http://archivesspace.lib.utc.edu:8082'
 ## (i.e., another domain or port, or via https, or for a prefix) it is
 ## recommended that you record those URLs in your configuration
 #AppConfig[:frontend_proxy_url] = proc { AppConfig[:frontend_url] }
-#AppConfig[:public_proxy_url] = proc { AppConfig[:public_url] }
+#AppConfig[:frontend_proxy_url] = "https://findingaidsstafftest.utc.edu"
+# AppConfig[:public_proxy_url] = proc { AppConfig[:public_url] }
+# AppConfig[:public_proxy_url] = "http://192.168.33.11/";
 #
 ## Don't override _prefix or _proxy_prefix unless you know what you're doing
 #AppConfig[:frontend_proxy_prefix] = proc { "#{URI(AppConfig[:frontend_proxy_url]).path}/".gsub(%r{/+$}, "/") }
@@ -248,6 +257,7 @@ AppConfig[:oai_proxy_url] = 'http://archivesspace.lib.utc.edu:8082'
 #AppConfig[:backend_instance_urls] = proc { [AppConfig[:backend_url]] }
 #
 #AppConfig[:frontend_theme] = "default"
+#AppConfig[:public_theme] = "default"
 AppConfig[:public_theme] = "local"
 #
 ## Sessions marked as expirable will timeout after this number of seconds of inactivity
@@ -290,6 +300,7 @@ AppConfig[:public_theme] = "local"
 #
 ## URL to direct the feedback link
 ## You can remove this from the footer by making the value blank.
+#AppConfig[:feedback_url] = "http://archivesspace.org/feedback"
 AppConfig[:feedback_url] = ""
 #
 ## Allow an unauthenticated user to create an account
@@ -478,7 +489,7 @@ AppConfig[:feedback_url] = ""
 #AppConfig[:pui_search_results_page_size] = 10
 #AppConfig[:pui_branding_img] = 'archivesspace.small.png'
 #AppConfig[:pui_block_referrer] = true # patron privacy; blocks full 'referrer' when going outside the domain
-AppConfig[:pui_enable_staff_link] = true # attempt to add a link back to the staff interface
+#AppConfig[:pui_enable_staff_link] = true # attempt to add a link back to the staff interface
 #
 ## The number of PDFs that can be generated (in the background) at the same time.
 ##
@@ -499,7 +510,7 @@ AppConfig[:pui_hide][:accessions] = true
 AppConfig[:pui_hide][:classifications] = true
 #AppConfig[:pui_hide][:search_tab] = false
 ## The following determine globally whether the various "badges" appear on the Repository page
-## can be overriden at repository level below (e.g.:  AppConfig[:repos][{repo_code}][:hide][:counts] = true
+## can be overriden at repository level below (e.g.:  AppConfig[:pui_repos][{repo_code}][:hide][:counts] = true
 #AppConfig[:pui_hide][:resource_badge] = false
 #AppConfig[:pui_hide][:record_badge] = true # hide by default
 #AppConfig[:pui_hide][:digital_object_badge] = false
@@ -537,7 +548,7 @@ AppConfig[:pui_hide][:classifications] = true
 ## AppConfig[:pui_repos]['foo'] = {}
 ## AppConfig[:pui_repos]['foo'][:requests_permitted_for_types] = [:resource, :archival_object, :accession, :digital_object, :digital_object_component] # for a particular repository, only enable requests for certain record types (Note this configuration will override AppConfig[:pui_requests_permitted_for_types] for the repository)
 ## AppConfig[:pui_repos]['foo'][:requests_permitted_for_containers_only] = true # for a particular repository ,disable request
-# AppConfig[:pui_repos]['foo'][:request_email] = {email address} # the email address to send any repository requests
+## AppConfig[:pui_repos]['foo'][:request_email] = {email address} # the email address to send any repository requests
 ## AppConfig[:pui_repos]['foo'][:hide] = {}
 ## AppConfig[:pui_repos]['foo'][:hide][:counts] = true
 #
@@ -546,11 +557,11 @@ AppConfig[:pui_email_enabled] = true
 #
 ## See above AppConfig[:pui_repos][{repo_code}][:request_email] for setting repository email overrides
 ## 'pui_email_override' for testing, this email will be the to-address for all sent emails
-## AppConfig[:pui_email_override] = 'testing@example.com'
+AppConfig[:pui_email_override] = 'steven.d.shelton@gmail.com'
 ## 'pui_request_email_fallback_to_address' the 'to' email address for repositories that don't define their own email
-AppConfig[:pui_request_email_fallback_to_address] = 'steven-shelton@utc.edu'
+AppConfig[:pui_request_email_fallback_to_address] = 'steven.d.shelton@gmail.com'
 ## 'pui_request_email_fallback_from_address' the 'from' email address for repositories that don't define their own email
-AppConfig[:pui_request_email_fallback_from_address] = 'steven-shelton@utc.edu'
+AppConfig[:pui_request_email_fallback_from_address] = 'steven.d.shelton@gmail.com'
 #
 ## use the repository record email address for requests (overrides config email)
 AppConfig[:pui_request_use_repo_email] = true
@@ -606,9 +617,35 @@ AppConfig[:pui_email_raise_delivery_errors] = true
 ##   # 'form_id' as string to be used as the form's ID
 ##   'form_id' => 'my_grand_action',
 ## }
+
+
 ## # ERB action example:
 ## AppConfig[:pui_page_custom_actions] << {
 ##   'record_type' => ['resource', 'archival_object'], # the jsonmodel type to show for
 ##   # 'erb_partial' returns the path to an erb template from which the action will be rendered
 ##   'erb_partial' => 'shared/my_special_action',
 ## }
+#
+## For Accessions browse set if accession date year filter values should be sorted ascending rather than descending (default)
+#AppConfig[:sort_accession_date_filter_asc] = false
+#
+## Human-Readable URLs options
+## use_human_readable_urls: determines whether fields and options related to human-readable URLs appear in the staff interface
+## Changing this option will not remove or clear any slugs that exist currently.
+## This setting only affects links that are displayed. URLs that point to valid slugs will still work.
+## WARNING: Changing this setting may require an index rebuild for changes to take effect.
+#
+#AppConfig[:use_human_readable_urls] = false
+#
+## Use the repository in human-readable URLs
+## Warning: setting repo_name_in_slugs to true when it has previously been set to false will break links, unless all slugs are regenerated.
+#AppConfig[:repo_name_in_slugs] = false
+#
+## Autogenerate slugs based on IDs. If this is set to false, then slugs will autogenerate based on name or title.
+#AppConfig[:auto_generate_slugs_with_id] = false
+#
+## For Resources: if this option and auto_generate_slugs_with_id are both enabled, then slugs for Resources will be generated with EADID instead of the identifier.
+#AppConfig[:generate_resource_slugs_with_eadid] = false
+#
+## For archival objects: if this option and auto_generate_slugs_with_id are both enabled, then slugs for archival resources will be generated with Component Unique Identifier instead of the identifier.
+#AppConfig[:generate_archival_object_slugs_with_cuid] = false
