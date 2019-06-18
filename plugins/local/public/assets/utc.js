@@ -1,7 +1,7 @@
-jQuery(document).ready(function() {
+$(document).ready(function() {
   // using https://xdsoft.net/jqplugins/datetimepicker/ for request form field
 	// date format https://www.php.net/manual/en/function.date.php
-  jQuery(".datepicker").datetimepicker({
+  $(".datepicker").datetimepicker({
 		lazyInit: true,
 		step: 30,
 		format: 'D n/j/Y g:i A',
@@ -11,8 +11,8 @@ jQuery(document).ready(function() {
 		disabledWeekDays: [0,6]
 	});
   // add home button to menu
-  jQuery('#navigation ul').prepend("<li><a href='/'>Home</a></li>");
-  jQuery(function() {
+  $('#navigation ul').prepend("<li><a href='/'>Home</a></li>");
+  $(function() {
     //get full url
     var url = location.href;
     // add envrironmental indicator
@@ -21,12 +21,12 @@ jQuery(document).ready(function() {
       $('body').prepend("<div id='dev-environment' class='alert alert-info' role='alert' style='padding: 0.25em; text-align: center; margin-bottom: 0px; display: block;'> | <strong>DEV</strong> environment | </div>");
     }
     // replace icon with CONTENTdm api thumbnail
-    if (url.indexOf('_objects') > -1) {
-      var CDMurl = jQuery('a.digital_object').attr('href');
+    if ((url.indexOf('_objects') > -1)&&($('a.digital_object').length)) {
+      var CDMurl = $('a.digital_object').attr('href');
       var CDMthumbnail = CDMurl.replace('/digital/', '/utils/getthumbnail/');
-      jQuery('a.digital_object>i').replaceWith('<img src=\"' + CDMthumbnail + '\" \/>');
-      jQuery('a.digital_object br').remove();
-      jQuery(".digital_object .panel-heading").text("View Online");
+      $('a.digital_object>i').replaceWith('<img src=\"' + CDMthumbnail + '\" \/>');
+      $('a.digital_object br').remove();
+      $(".digital_object .panel-heading").text("View Online");
     }
 
     // remove domain
@@ -35,7 +35,7 @@ jQuery(document).ready(function() {
     if (current === "/") {
       document.title = "Finding Aids | Special Collections | University of Tennessee at Chattanooga";
     }
-    jQuery('.top-bar ul li a').each(function() {
+    $('.top-bar ul li a').each(function() {
       var $this = $(this);
       // if the current path is like this link, make it active
       if ($this.attr('href') === current) {
@@ -43,5 +43,5 @@ jQuery(document).ready(function() {
       }
     })
   })
-  jQuery('body').prepend('<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TS9WVQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>');
+  $('body').prepend('<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TS9WVQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>');
 });

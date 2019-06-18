@@ -53,9 +53,13 @@ body {
   background: #00386B;
 }
 
-#tabs .navbar-default {
+#navigation #tabs .navbar-default {
   background-color: #E0E0DF;
   border-color: #E0E0DF;
+}
+#tabs .navbar-default {
+  background-color: whitesmoke;
+  border-color: whitesmoke;
 }
 
 .top-bar {
