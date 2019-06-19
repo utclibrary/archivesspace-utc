@@ -8,6 +8,7 @@ $(document).ready(function() {
 		minTime: '08:00',
 		maxTime: '16:30',
 		formatTime: 'g:i A',
+     validateOnBlur: false,
 		disabledWeekDays: [0,6]
 	});
   // add home button to menu
