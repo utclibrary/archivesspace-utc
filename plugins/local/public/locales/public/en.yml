@@ -86,8 +86,8 @@ en:
   search-limiting: "limited to %{limit}"
   search-limits:
     all: all record types
-    repository: repositories
-    repositories: repositories
+    repository: collection areas
+    repositories: collection areas
     resource: collections
     resources: collections
     digital: digital materials
@@ -163,8 +163,8 @@ en:
       query: Text
       subjects: Subject
       primary_type: Type
-      repository: Repository
-      used_within_published_repository: Repository
+      repository: Collection Area
+      used_within_published_repository: Collection Area
       creators: Creator
       fullrecord: Keyword
       subjects_text: Subject
@@ -345,10 +345,10 @@ en:
     _plural: The Archives
 
   repository:
-    _singular: Repository
-    _plural: Repositories
-    what: What's in this Repository?
-    details: Repository Details
+    _singular: Collection Area
+    _plural: Collection Areas
+    what: What's in this Collection Area?
+    details: Collection Area Details
     part: Part of the
 
   context: Found in
@@ -742,7 +742,7 @@ en:
       red: Redaktor
       ren: Renderer
       rpt: Reporter
-      rps: Repository
+      rps: Collection Area
       rth: Research team head
       rtm: Research team member
       res: Researcher
@@ -1935,7 +1935,7 @@ en:
       meters: Meters
     restriction_type:
       RestrictedSpecColl: 1 - Donor/university imposed access restriction
-      RestrictedCurApprSpecColl: 2 - Repository imposed access restriction
+      RestrictedCurApprSpecColl: 2 - Collection Area imposed access restriction
       RestrictedFragileSpecColl: 3 - Restricted fragile
       InProcessSpecColl: 4 - Restricted in-process
       ColdStorageBrbl: 5 - Other
