@@ -104,7 +104,7 @@ body {
   -webkit-box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
 }
-
+/* added for new homepage items */
 #footer p.footer-items {
   padding-top: 10px;
   text-align: right;
@@ -112,4 +112,34 @@ body {
 .comment-field {
     position: absolute;
     left: -9999px;
+}
+.as-c-thumbnail h3 {
+  margin-top: 10px;
+}
+
+.as-c-thumbnail img {
+  width: 100%;
+}
+
+#promo a:hover {
+  text-decoration: none;
+}
+.as-c-thumbnail {
+  background-color: #fff;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  border-radius: 0;
+  border: 2px solid #fff;
+  padding: 0;
+  height: 100%;
+}
+
+.as-c-thumbnail:hover {
+  background-color: #dde6ee;
+  border-color: #dde6ee;
+  text-decoration: none;
+  box-shadow: 0 3px 2px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 7px 0 rgba(0,0,0,.12);
+}
+
+.as-c-h2--margin-bottom {
+  margin-bottom: 25px;
 }
