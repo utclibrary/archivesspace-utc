@@ -22,7 +22,7 @@
            ]
     } %>
 <!-- promo content -->
-<%-
+<%- #array for content: link | image file name | img alt text | caption
 promoContent = [
   ['repositories/2','as-manuscripts-collection.jpg','Robert Sparks Walker diary, 1943. Courtesy of the University of Tennessee at Chattanooga Special Collections.', 'Manuscripts'], 
   ['repositories/4','as-university-archives-collection.jpg', 'University of Tennessee Homecoming pamphlet, 1974. Courtesy of the University of Tennessee at Chattanooga Special Collections.' ,'University Archives'], 
@@ -34,37 +34,52 @@ promoContent = [
   ['/search?utf8=%E2%9C%93&amp;op%5B%5D=&amp;q%5B%5D=Segregation&amp;limit=resource&amp;field%5B%5D=subjects_text&amp;from_year%5B%5D=&amp;to_year%5B%5D=&amp;op%5B%5D=OR&amp;q%5B%5D=%22Civil+rights+movements%22&amp;field%5B%5D=subjects_text&amp;from_year%5B%5D=&amp;to_year%5B%5D=&amp;op%5B%5D=OR&amp;q%5B%5D=%22Black+Power%22&amp;field%5B%5D=subjects_text&amp;from_year%5B%5D=&amp;to_year%5B%5D=&amp;op%5B%5D=OR&amp;q%5B%5D=%22Social+justice%22&amp;field%5B%5D=subjects_text&amp;from_year%5B%5D=&amp;to_year%5B%5D=&amp;op%5B%5D=OR&amp;q%5B%5D=%22Gun+control%22&amp;field%5B%5D=subjects_text&amp;from_year%5B%5D=&amp;to_year%5B%5D=&amp;commit=Search', 'as-social-justice-collection.jpg', '&#39;Officials Forced To Resort To Fire Hose As City Has Worst Racial Disturbance&#39; newspaper clipping, 1960 February 25, by the Chattanooga News-Free Press. Courtesy of the Chattanooga Public Library and the University of Tennessee at Chattanooga Special Collections.', 'Social Justice'],
   ['/search?utf8=%E2%9C%93&amp;op%5B%5D=&amp;q%5B%5D=Religion&amp;limit=resource&amp;field%5B%5D=subjects_text&amp;from_year%5B%5D=&amp;to_year%5B%5D=&amp;op%5B%5D=OR&amp;q%5B%5D=Church&amp;field%5B%5D=subjects_text&amp;from_year%5B%5D=&amp;to_year%5B%5D=&amp;op%5B%5D=OR&amp;q%5B%5D=%22Religious+life+and+customs%22&amp;field%5B%5D=subjects_text&amp;from_year%5B%5D=&amp;to_year%5B%5D=&amp;commit=Search', 'as-religion-collection.jpg', 'Woman&#39;s baptism photograph, undated, photographed by Mary Vance. Courtesy of the University of Tennessee at Chattanooga Special Collections.', 'Religion']
 ]
+# set counter
 i=0
 %>
 <div id="promo" class="container-fluid" style="text-align: center;">
 <h2 class="as-c-h2--margin-bottom">Browse by <%= t('repository._plural') %></h2>
-<div class="row">
-<div class="col-md-8 col-md-offset-2 as-l-row-eq-height">
-  <%- promoContent.each do |row| %>
-  <%- if i == 3 %>
-  </div></div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 as-l-row-eq-height">
+  <%- 
+  # iterate through array as row
+  promoContent.each do |row| 
+  # after three close divs and add new head
+  if i == 3 
+  %>
+    </div>
+  </div>
   <h2 class="as-c-h2--margin-bottom">Browse by Selected Topics</h2>
   <div class="row">
-  <div class="col-md-8 col-md-offset-2 as-l-row-eq-height">
-  <%- end %>
-  <%- if i == 6 %>
-  </div></div>
+    <div class="col-md-8 col-md-offset-2 as-l-row-eq-height">
+  <%- end
+  # check position and close row
+  if i == 6
+  %>
+    </div>
+  </div>
   <div class="row">
-  <div class="col-md-8 col-md-offset-2 as-l-row-eq-height">
-  <%- end %>
+    <div class="col-md-8 col-md-offset-2 as-l-row-eq-height">
+  <%- end 
+  # generate each box
+  %>
     <div class="col-md-4 as-l-margin-bottom">
       <div class="as-c-thumbnail__border">
         <a href="<%= row[0] %>">
-        <div class="thumbnail as-c-thumbnail">
-          <img src="/assets/images/<%= row[1] %>" alt="<%= row[2] %>">
-          <div class="caption">
-          <h3><%= row[3] %></h3>
-        </div>
-      </div>
+          <div class="thumbnail as-c-thumbnail">
+            <img src="/assets/images/<%= row[1] %>" alt="<%= row[2] %>">
+              <div class="caption">
+                <h3><%= row[3] %></h3>
+              </div>
+          </div>
         </a>
-    </div></div>
+      </div>
+    </div>
   <%-
+  # increment counter
   i = i+1
   end 
   %>
-  </div></div></div>
+    </div>
+  </div>
+</div>
