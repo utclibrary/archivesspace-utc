@@ -76,7 +76,7 @@ AppConfig[:public_url] = "http://192.168.33.11:8081"
 #
 ## By default, Solr backups will run at midnight.  See https://crontab.guru/ for
 ## information about the schedule syntax.
-#AppConfig[:solr_backup_schedule] = "0 * * * *"
+AppConfig[:solr_backup_schedule] = "0 0 * * *"
 #AppConfig[:solr_backup_number_to_keep] = 1
 #AppConfig[:solr_backup_directory] = proc { File.join(AppConfig[:data_directory], "solr_backups") }
 ## add default solr params, i.e. use AND for search: AppConfig[:solr_params] = { "q.op" => "AND" }
@@ -88,7 +88,7 @@ AppConfig[:public_url] = "http://192.168.33.11:8081"
 ##      "pf" => 'title^10',
 ##      "ps" => 0,
 ##    }
-## For more inforsmation about solr parameters, please consult the solr documentation
+## For more information about solr parameters, please consult the solr documentation
 ## here: https://lucene.apache.org/solr/
 ## Configuring search operator to be AND by default - ANW-427
 #AppConfig[:solr_params] = { "q.op" => "AND" }
@@ -99,7 +99,7 @@ AppConfig[:public_url] = "http://192.168.33.11:8081"
 #AppConfig[:locale] = :en
 #
 ## Plug-ins to load. They will load in the order specified
-AppConfig[:plugins] = ['local',  'lcnaf', 'aspace-import-excel']
+AppConfig[:plugins] = ['local',  'lcnaf']
 #
 ## The number of concurrent threads available to run background jobs
 ## Resist the urge to set this to a big number as it will affect performance
@@ -213,9 +213,7 @@ AppConfig[:plugins] = ['local',  'lcnaf', 'aspace-import-excel']
 ## (i.e., another domain or port, or via https, or for a prefix) it is
 ## recommended that you record those URLs in your configuration
 #AppConfig[:frontend_proxy_url] = proc { AppConfig[:frontend_url] }
-#AppConfig[:frontend_proxy_url] = "https://findingaidsstafftest.utc.edu"
-# AppConfig[:public_proxy_url] = proc { AppConfig[:public_url] }
-# AppConfig[:public_proxy_url] = "http://192.168.33.11/";
+#AppConfig[:public_proxy_url] = proc { AppConfig[:public_url] }
 #
 ## Don't override _prefix or _proxy_prefix unless you know what you're doing
 #AppConfig[:frontend_proxy_prefix] = proc { "#{URI(AppConfig[:frontend_proxy_url]).path}/".gsub(%r{/+$}, "/") }
@@ -300,7 +298,7 @@ AppConfig[:public_theme] = "local"
 #
 ## URL to direct the feedback link
 ## You can remove this from the footer by making the value blank.
-#AppConfig[:feedback_url] = "http://archivesspace.org/feedback"
+#AppConfig[:feedback_url] = "https://archivesspace.org/contact"
 AppConfig[:feedback_url] = ""
 #
 ## Allow an unauthenticated user to create an account
@@ -308,9 +306,8 @@ AppConfig[:feedback_url] = ""
 #
 ## Help Configuration
 #AppConfig[:help_enabled] = true
-#AppConfig[:help_url] = "http://docs.archivesspace.org"
-#AppConfig[:help_topic_prefix] = "/Default_CSH.htm#"
-#
+#AppConfig[:help_url] = "https://archivesspace.atlassian.net/wiki/spaces/ArchivesSpaceUserManual/overview"
+#AppConfig[:help_topic_base_url] = "https://archivesspace.atlassian.net/wiki/spaces/ArchivesSpaceUserManual/pages/"
 #
 #AppConfig[:shared_storage] = proc { File.join(AppConfig[:data_directory], "shared") }
 #
@@ -394,8 +391,8 @@ AppConfig[:feedback_url] = ""
 #                            :inherit_directly => false
 #                          },
 #                          {
-#                            :property => 'language',
-#                            :inherit_directly => true
+#                            :property => 'lang_materials',
+#                            :inherit_directly => false
 #                          },
 #                          {
 #                            :property => 'dates',
@@ -521,9 +518,6 @@ AppConfig[:pui_hide][:classifications] = true
 #AppConfig[:pui_hide][:counts] = false
 ## The following determines globally whether the 'container inventory' navigation tab/pill is hidden on resource/collection page
 #AppConfig[:pui_hide][:container_inventory] = false
-## Other usage examples:
-## Don't display the accession ("unprocessed material") link on the main navigation menu
-## AppConfig[:pui_hide][:accessions] = true
 #
 ## Whether to display linked decaccessions
 #AppConfig[:pui_display_deaccessions] = true
@@ -536,6 +530,12 @@ AppConfig[:pui_hide][:classifications] = true
 #AppConfig[:pui_page_actions_bookmark] = true
 #AppConfig[:pui_page_actions_request] = true
 #AppConfig[:pui_page_actions_print] = true
+#
+## when a user is authenticated, add a link back to the staff interface from the specified record
+#AppConfig[:pui_enable_staff_link] = true
+## by default, staff link will open record in staff interface in edit mode,
+## change this to 'readonly' for it to open in readonly mode
+#AppConfig[:pui_staff_link_mode] = 'edit'
 #
 ## PUI Request Function (used when AppConfig[:pui_page_actions_request] = true)
 ## the following determine on what kinds of records the request button is displayed
@@ -617,8 +617,6 @@ AppConfig[:pui_email_raise_delivery_errors] = true
 ##   # 'form_id' as string to be used as the form's ID
 ##   'form_id' => 'my_grand_action',
 ## }
-
-
 ## # ERB action example:
 ## AppConfig[:pui_page_custom_actions] << {
 ##   'record_type' => ['resource', 'archival_object'], # the jsonmodel type to show for
@@ -649,3 +647,21 @@ AppConfig[:pui_email_raise_delivery_errors] = true
 #
 ## For archival objects: if this option and auto_generate_slugs_with_id are both enabled, then slugs for archival resources will be generated with Component Unique Identifier instead of the identifier.
 #AppConfig[:generate_archival_object_slugs_with_cuid] = false
+## Determines if the subject source is shown along with the subject heading in records' subject listings
+## This can help differentiate between subjects with the same heading
+#AppConfig[:show_source_in_subject_listing] = false
+#
+## ARKs configuration options
+## determines whether fields and options related to ARKs appear in the staff interface
+#AppConfig[:arks_enabled] = false
+#
+## If you are planning on using ARKs, change this to a valid, registered NAAN.
+## Institutional NAAN value to use in ARK URLs.
+#AppConfig[:ark_naan] = "99999"
+#
+## URL prefix to use in ARK URLs.
+## In most cases this will be the same as the PUI URL.
+#AppConfig[:ark_url_prefix] = proc { AppConfig[:public_proxy_url] }
+#
+## Specifies if the fields that show up in csv should be limited to those in search results
+#AppConfig[:limit_csv_fields] = true
