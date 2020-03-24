@@ -7,7 +7,7 @@ docs/
 gems/
 launcher/
 lib/
-locales/
+/locales/
 plugins/cat_in_a_box/
 plugins/lcnaf/
 plugins/newrelic/
