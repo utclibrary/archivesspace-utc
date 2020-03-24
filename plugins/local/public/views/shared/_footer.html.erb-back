@@ -1,0 +1,11 @@
+<div id="footer" class="container-fluid panel-footer">
+  <div class="row">
+     <div class="col-md-12">
+       <p class="footer-items"><a href="<%= AppConfig[:frontend_proxy_url] %>">Staff Interface</a>
+         | Powered by <a href="http://archivesspace.org">ArchivesSpace.org</a>
+         | <%= ASConstants.VERSION %>
+         | <% if AppConfig[:feedback_url] && !AppConfig[:feedback_url].blank? %><a id='aspaceFeedbackLink' href='<%= AppConfig[:feedback_url]%>' target='_blank'>Send Feedback or Report a Problem</a><% end %></p>
+     </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
