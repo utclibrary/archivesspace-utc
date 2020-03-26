@@ -59,7 +59,9 @@ jQuery('body').prepend('<noscript><iframe src="//www.googletagmanager.com/ns.htm
             };
             var localDate = new Date(item.pubDate);
             var options = { dateStyle: 'full', timeStyle: 'medium'};
-            jQuery("#alert").append("<div id='utc-alert' class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>×</button><h2>" + item.title + "</h2><p><small>Posted on " + localDate.toLocaleString('en-US', options) + "</small></p><p>" + item.description + "</p><p><a class='btn btn-danger' href='" + item.link + "'>More information…</a></p><h3>COVID-19 Library Operations Update</h3><p>Check out the <a href='https://utc.edu/library/library-continuity/index.php'><strong>latest on currently available library services</strong></a>.</p></div>");
+            if (item.title != "No emergencies at this time"){
+              jQuery("#alert").append("<div id='utc-alert' class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>×</button><h2>" + item.title + "</h2><p><small>Posted on " + localDate.toLocaleString('en-US', options) + "</small></p><p>" + item.description + "</p><p><a class='btn btn-danger' href='" + item.link + "'>More information…</a></p>");
+            }
             return false;
     });
   });
