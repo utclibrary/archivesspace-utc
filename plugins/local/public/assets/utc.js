@@ -45,8 +45,10 @@ jQuery(document).ready(function() {
       }
     })
   })
-jQuery('body').prepend('<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TS9WVQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>');
-  jQuery('#content').prepend('<div id="alert"></div>');
+  var libraryAlert = '<!-- BEGIN temp COVID-19 Library Alert --><div id="libraryAlert"><div id="utc-alert" style="margin:0;color:#802020;" class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><h3 style="margin-top:0;color:#802020">COVID-19 Library Operations Update</h3><p style="margin: 0;">Check out the <a href="https://utc.edu/library/library-continuity/index.php"><strong>latest on currently available library services</strong></a>.</p></div></div><!-- END temp COVID-19 Library Alert -->';
+
+  jQuery('body').prepend('<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TS9WVQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>');
+  jQuery('#content').prepend('<div id="alert"></div>'+libraryAlert);
   jQuery.get("https://www.getrave.com/rss/utc/channel1", function(data) {
     var $XML = $(data);
     $XML.find("item").each(function() {
