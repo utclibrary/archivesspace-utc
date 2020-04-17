@@ -15,11 +15,14 @@ jQuery(document).ready(function() {
   jQuery('#navigation ul').prepend("<li><a href='/'>Home</a></li>");
   jQuery(function() {
     //get full url
-    var url = location.href;
+    var url = window.location.href;
     // add envrironmental indicator
-    //console.log(url);
-    if (url.indexOf('?findingaids.utc.edu?') === -1) {
+    console.log(url);
+    if (url.indexOf('findingaidstest.utc.edu') > -1) {
       $('body').prepend("<div id='dev-environment' class='alert alert-info' role='alert' style='padding: 0.25em; text-align: center; margin-bottom: 0px; display: block;'> | <strong>DEV</strong> environment | </div>");
+    }
+    if (url.indexOf(':8081') > -1) {
+      $('body').prepend("<div id='dev-environment' class='danger danger-info' role='alert' style='padding: 0.25em; text-align: center; margin-bottom: 0px; display: block;'> | <strong>LOCAL</strong> environment | </div>");
     }
     // replace icon with CONTENTdm api thumbnail
     if ((url.indexOf('_objects') > -1)&&($('a.digital_object').length)) {
@@ -45,10 +48,9 @@ jQuery(document).ready(function() {
       }
     })
   })
-  var libraryAlert = '<!-- BEGIN temp COVID-19 Library Alert --><div id="libraryAlert"><div id="utc-alert" style="margin:0;color:#802020;" class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><h3 style="margin-top:0;color:#802020">COVID-19 Library Operations Update</h3><p style="margin: 0;">Check out the <a href="https://utc.edu/library/library-continuity/index.php"><strong>latest on currently available library services</strong></a>.</p></div></div><!-- END temp COVID-19 Library Alert -->';
 
   jQuery('body').prepend('<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TS9WVQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>');
-  jQuery('#content').prepend('<div id="alert"></div>'+libraryAlert);
+  jQuery('#content').prepend('<div id="alert"></div><div id="libAlert"></div>');
   jQuery.get("https://www.getrave.com/rss/utc/channel1", function(data) {
     var $XML = $(data);
     $XML.find("item").each(function() {
@@ -67,4 +69,31 @@ jQuery(document).ready(function() {
             return false;
     });
   });
+// BEGIN functionality to add library alerts from a feed
+//  jQuery.get("https://liblab.utc.edu/orgsync/alerts-rss.xml?v=blue", function(data) {
+//    var $XML = $(data);
+//    $XML.find("item").each(function() {
+//        var $this = $(this),
+//            item = {
+//                title:       $this.find("title").text(),
+//                link:        $this.find("link").text(),
+//                description: $this.find("description").text(),
+//                pubDate:     $this.find("pubDate").text()
+//            };
+//            var description = item.description;
+//            var split = description.split("link:");
+//            var localDate = new Date(item.pubDate);
+//            if (split[1] == ""){
+//              var link = item.link;
+//            }
+//            else{
+//              var link = split[1];
+//            }
+//            var options = { dateStyle: 'full', timeStyle: 'medium'};
+//              jQuery("#libAlert").append(`<div id='library-alert' class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>×</button><h2><a href='${link}'>${item.title}</a></h2><p><small>Posted on ${localDate.toLocaleString('en-US', options)}</small></p><p>${split[0]}</p><p><a href='${link}'>Read more …</a></p>`);
+//            return false;
+//    });
+//  });
+// END add library alerts from feed
+jQuery("#libAlert").append(`<div id="library-alert" class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>To help prevent the spread of the novel coronavirus (COVID-19), Special Collections personnel are working remotely. This means that access to our physical material is limited. Please email us at <a href="mailto:archives@utc.edu">archives@utc.edu</a> if you have questions. <p></p></div>`);
 });
