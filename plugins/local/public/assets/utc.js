@@ -26,7 +26,7 @@ jQuery(document).ready(function() {
     }
     // replace icon with CONTENTdm api thumbnail
     if ((url.indexOf('_objects') > -1)&&($('a.digital_object').length)) {
-   
+
       var CDMurl = jQuery('a.digital_object').attr('href');
       var CDMthumbnail = CDMurl.replace('/digital/', '/utils/getthumbnail/');
       jQuery('a.digital_object>i').replaceWith('<img src=\"' + CDMthumbnail + '\" \/>');
@@ -95,5 +95,5 @@ jQuery(document).ready(function() {
 //    });
 //  });
 // END add library alerts from feed
-jQuery("#libAlert").append(`<div id="library-alert" class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button>To help prevent the spread of the novel coronavirus (COVID-19), Special Collections personnel are working remotely. This means that access to our physical material is limited. Please email us at <a href="mailto:archives@utc.edu">archives@utc.edu</a> if you have questions. <p></p></div>`);
+jQuery("#libAlert").append(`<div id="library-alert" class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><p>To help prevent the spread of the novel coronavirus (COVID-19), Special Collections requires all researchers <a href="https://www.utc.edu/library/special-collections/services/make-an-appointment.php" target="_blank">make an appointment</a> in order to access physical materials. Email us at <a href="mailto:archives@utc.edu">archives@utc.edu</a> if you have questions.</p></div>`);
 });
