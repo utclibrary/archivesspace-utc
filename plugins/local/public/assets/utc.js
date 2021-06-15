@@ -95,5 +95,4 @@ jQuery(document).ready(function() {
 //    });
 //  });
 // END add library alerts from feed
-jQuery("#libAlert").append(`<div id="library-alert" class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><p>To help prevent the spread of the novel coronavirus (COVID-19), Special Collections requires all researchers <a href="https://www.utc.edu/library/special-collections/services/make-an-appointment.php" target="_blank">make an appointment</a> in order to access physical materials. Email us at <a href="mailto:archives@utc.edu">archives@utc.edu</a> if you have questions.</p></div>`);
-});
+//jQuery("#libAlert").append(`<div id="library-alert" class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><p>To help prevent the spread of the novel coronavirus (COVID-19), Special Collections requires all researchers <a href="https://www.utc.edu/library/special-collections/services/make-an-appointment.php" target="_blank">make an appointment</a> in order to access physical materials. Email us at <a href="mailto:archives@utc.edu">archives@utc.edu</a> if you have questions.</p></div>`);});
