@@ -26,7 +26,7 @@ en:
     home: Home
     welcome_head: University of Tennessee at Chattanooga Finding Aids
     welcome_message: |
-                     <p>Search or browse our finding aids for manuscript and archival materials housed in the University of Tennessee at Chattanooga's <a href="https://www.utc.edu/library/special-collections/" target="_blank">Special Collections</a>, including the <a href="https://www.utc.edu/library/special-collections/collections/chattanooga-history-collections.php" target="_blank">Chattanooga History Collections</a>.</p><p>Finding aids are detailed inventories of collections which provide information about the creation, historical context, and contents of primary source materials. They are used to determine which archival collections are useful for your research. For help conducting research with finding aids and requesting materials, please consult our <a href="https://www.utc.edu/library/special-collections/research/faq.php" target="_blank">Frequently Asked Questions</a>. To access materials, visit <a href="https://www.utc.edu/library/special-collections/" target="_blank">Special Collections</a>. <a href="https://www.utc.edu/library/special-collections/services/make-an-appointment.php" target="_blank">Appointments are encouraged</a>.</p>
+                     <p>Search or browse our finding aids for manuscript and archival materials housed in the University of Tennessee at Chattanooga's <a href="https://www.utc.edu/library/special-collections" target="_blank">Special Collections</a>, including the <a href="https://www.utc.edu/library/special-collections/collections/chattanooga-history-collections" target="_blank">Chattanooga History Collections</a>.</p><p>Finding aids are detailed inventories of collections which provide information about the creation, historical context, and contents of primary source materials. They are used to determine which archival collections are useful for your research. For help conducting research with finding aids and requesting materials, please consult our <a href="https://www.utc.edu/library/special-collections/research/faq" target="_blank">Frequently Asked Questions</a>. To access materials, visit <a href="https://www.utc.edu/library/special-collections" target="_blank">Special Collections</a>. <a href="https://www.utc.edu/library/special-collections/services/make-an-appointment" target="_blank">Appointments are encouraged</a>.</p>
 
     welcome_search_label: "Search Finding Aids:"
     welcome_page_title: University of Tennessee at Chattanooga Finding Aids
@@ -63,7 +63,7 @@ en:
   request:
     required: required
     intro: |
-                <p>Complete this form and we'll arrange to place requested archival materials on hold and schedule one of our archivists to meet with you in person. Appointments are available during our <a href="https://www.utc.edu/library/special-collections/about/hours-and-location.php" target="_blank">hours of operation</a>. Requests may take up to 5 business days to process.</p>
+                <p>Complete this form and we'll arrange to place requested archival materials on hold and schedule one of our archivists to meet with you in person. Appointments are available during our <a href="https://www.utc.edu/library/special-collections/about/hours-and-location" target="_blank">hours of operation</a>. Requests may take up to 5 business days to process.</p>
     user_name: Full Name
     user_email: Email
     date: Preferred Date and Time of Appointment
